@@ -48,8 +48,8 @@ h1, h2, h3, h4, .font-heading {
 /* Custom Navbar */
 .custom-navbar {
     background-color: #158265 !important;
-    padding: 0.85rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 0.9rem 0 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
 }
 
 .logo-emblem {
@@ -57,17 +57,30 @@ h1, h2, h3, h4, .font-heading {
     height: 38px;
 }
 
-.nav-links .nav-link {
-    color: rgba(255, 255, 255, 0.9) !important;
-    font-weight: 500;
-    margin: 0 0.5rem;
-    transition: var(--transition);
+.logo-text {
+    font-family: var(--font-heading);
+    font-size: 1.55rem;
+    font-weight: 600;
+    color: #FFFFFF !important;
+    letter-spacing: 0.01em;
 }
 
-.nav-links .nav-link:hover, .nav-links .nav-link.active {
-    color: var(--brand-gold) !important;
-    text-decoration: underline;
-    text-underline-offset: 6px;
+.nav-links .nav-link {
+    color: #FFFFFF !important;
+    font-family: var(--font-body);
+    font-size: 0.98rem !important;
+    font-weight: 500 !important;
+    margin: 0 0.6rem !important;
+    transition: all 0.25s ease !important;
+}
+
+.nav-links .nav-link:hover, 
+.nav-links .nav-link.active {
+    color: #B98D44 !important;
+    text-decoration: underline !important;
+    text-decoration-color: #B98D44 !important;
+    text-underline-offset: 7px !important;
+    text-decoration-thickness: 2px !important;
 }
 
 .navbar-toggler-icon-custom {
@@ -77,33 +90,38 @@ h1, h2, h3, h4, .font-heading {
 
 /* Buttons */
 .btn-gold-pill {
-    background: #FFFFFF;
-    color: var(--brand-teal);
-    font-weight: 600;
-    border-radius: var(--radius-full);
-    padding: 0.6rem 1.4rem;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: var(--transition);
+    background: #FFFFFF !important;
+    color: #158265 !important;
+    font-family: var(--font-body);
+    font-weight: 600 !important;
+    font-size: 0.95rem !important;
+    border-radius: 999px !important;
+    padding: 0.55rem 1.4rem !important;
+    text-decoration: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.55rem !important;
+    transition: all 0.25s ease !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .btn-gold-pill:hover {
-    background: var(--brand-gold);
-    color: #FFFFFF;
+    background-color: #F8F9F8 !important;
+    color: #116B53 !important;
+    transform: translateY(-1.5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
 .btn-gold-pill .arrow-circle {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 24px;
-    height: 24px;
-    background: var(--brand-gold);
-    color: #FFFFFF;
-    border-radius: 50%;
-    font-size: 0.8rem;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 26px !important;
+    height: 26px !important;
+    background-color: #B98D44 !important;
+    color: #FFFFFF !important;
+    border-radius: 50% !important;
+    font-size: 0.85rem !important;
 }
 
 .btn-gold-lg {
