@@ -1,5 +1,5 @@
 {
-  "summary": "Updated research.html with multi-select option chips for 'What matters most to you in a partner?' allowing users to select up to 3 choices with visual tag badges and validation.",
-  "updatedAt": "2026-09-06T22:56:01.677240700Z",
+  "summary": "Update research.html with full Bootstrap styling and chip selector controls",
+  "updatedAt": "2026-09-07T01:18:56.656664300Z",
   "userFacing": true
 }
