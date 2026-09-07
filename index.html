@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HAVORA — Intentional Matchmaking for Africans Home & Abroad</title>
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,108 +15,189 @@
 <body>
 
     <!-- Header Navigation -->
-    <header class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo">
+    <nav class="navbar navbar-expand-lg sticky-top custom-navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand logo d-flex align-items-center gap-2">
                 <div class="logo-emblem">
                     <svg viewBox="0 0 40 40" fill="none">
                         <circle cx="20" cy="20" r="19" fill="#158265" stroke="#B98D44" stroke-width="2"/>
                         <path d="M15 19C15 17 17 15 20 15C23 15 25 17 25 19C25 22 20 25 20 25C20 25 15 22 15 19Z" fill="#B98D44"/>
                     </svg>
                 </div>
-                <span class="logo-text">Havora</span>
+                <span class="logo-text text-white">Havora</span>
             </a>
 
-            <nav class="nav-links">
-                <a href="#how-it-works" class="active">How it works</a>
-                <a href="#why-havora">Why Havora?</a>
-                <a href="#principles">Trust & Safety</a>
-                <a href="#faq">FAQ</a>
-            </nav>
+            <button class="navbar-toggler border-0 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#havoraNavbar" aria-controls="havoraNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon-custom">☰</span>
+            </button>
 
-            <div class="nav-actions">
-                <a href="waitlist.html" class="btn btn-gold-pill">
-                    <span>Join the Waitlist</span>
-                    <span class="arrow-circle">&rarr;</span>
-                </a>
-            </div>
-        </div>
-    </header>
+            <div class="collapse navbar-collapse" id="havoraNavbar">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0 nav-links">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#how-it-works">How it works</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#why-havora">Why Havora?</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#principles">Trust & Safety</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#faq">FAQ</a>
+                    </li>
+                </ul>
 
-    <!-- Hero Banner (Custom Hero Image) -->
-    <section class="hero-banner">
-        <div class="hero-container">
-            <div class="hero-content text-center">
-                <h1 class="hero-title">
-                    Find Someone Who Wants <br>
-                    <span class="highlight-gold">Forever, Just like You.</span>
-                </h1>
-                <p class="hero-subtext">
-                    Havora is a thoughtfully designed relationship platform for people who are ready for something meaningful and want to build towards a lasting future.
-                </p>
-                <div class="hero-action">
-                    <a href="waitlist.html" class="btn btn-gold-lg">
+                <div class="nav-actions">
+                    <a href="waitlist.html" class="btn btn-gold-pill">
                         <span>Join the Waitlist</span>
-                        <span class="arrow-circle-lg">&rarr;</span>
+                        <span class="arrow-circle">&rarr;</span>
                     </a>
                 </div>
             </div>
         </div>
-    </section>
+    </nav>
 
-    <!-- A Different Kind of Relationship Platform -->
-    <section class="section platform-section">
-        <div class="container">
-            <div class="section-header text-center">
-                <h2>A Different Kind of Relationship Platform</h2>
-                <p>Designed to help African singles connect with clarity, dignity, and real intent.</p>
+    <!-- Bootstrap 3-Slide Hero Carousel -->
+    <div id="havoraHeroCarousel" class="carousel slide carousel-fade hero-carousel" data-bs-ride="carousel" data-bs-interval="3500" data-bs-pause="false">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#havoraHeroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#havoraHeroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#havoraHeroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+
+        <div class="carousel-inner">
+            <!-- Slide 1 -->
+            <div class="carousel-item active hero-slide-bg-1">
+                <div class="carousel-caption hero-caption text-center">
+                    <div class="container">
+                        <h1 class="hero-title">
+                            Find Someone Who Wants <br>
+                            <span class="highlight-gold">Forever, Just like You.</span>
+                        </h1>
+                        <p class="hero-subtext mx-auto">
+                            Havora is a thoughtfully designed relationship platform for people who are ready for something meaningful and want to build towards a lasting future.
+                        </p>
+                        <div class="hero-action mt-4">
+                            <a href="waitlist.html" class="btn btn-gold-lg">
+                                <span>Join the Waitlist</span>
+                                <span class="arrow-circle-lg">&rarr;</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="platform-grid">
-                <div class="platform-card">
-                    <div class="card-icon-badge">
-                        <svg viewBox="0 0 24 24" class="icon"><path fill="currentColor" d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12c5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4l1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+            <!-- Slide 2 -->
+            <div class="carousel-item hero-slide-bg-2">
+                <div class="carousel-caption hero-caption text-center">
+                    <div class="container">
+                        <h1 class="hero-title">
+                            Built for <span class="highlight-gold">Intentionality & Marriage</span>
+                        </h1>
+                        <p class="hero-subtext mx-auto">
+                            Skip superficial swiping. Connect with high-trust, verified singles who share your core values, cultural heritage, and relationship goals.
+                        </p>
+                        <div class="hero-action mt-4">
+                            <a href="#how-it-works" class="btn btn-gold-lg">
+                                <span>Explore How It Works</span>
+                                <span class="arrow-circle-lg">&rarr;</span>
+                            </a>
+                        </div>
                     </div>
-                    <h3>Identity Verified</h3>
-                    <p>Know who you're meeting. We verify members' identities so you can connect with people who are who they say they are.</p>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="carousel-item hero-slide-bg-3">
+                <div class="carousel-caption hero-caption text-center">
+                    <div class="container">
+                        <h1 class="hero-title">
+                            Connecting Africans <span class="highlight-gold">Home & Abroad</span>
+                        </h1>
+                        <p class="hero-subtext mx-auto">
+                            Whether you are in Lagos, London, Atlanta, or Accra — discover genuine connections built on mutual respect and lasting commitment.
+                        </p>
+                        <div class="hero-action mt-4">
+                            <a href="waitlist.html" class="btn btn-gold-lg">
+                                <span>Join Our Founding Cohort</span>
+                                <span class="arrow-circle-lg">&rarr;</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Carousel Navigation Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#havoraHeroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#havoraHeroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <!-- A Different Kind of Relationship Platform -->
+    <section class="section platform-section py-5">
+        <div class="container py-4">
+            <div class="section-header text-center mb-5">
+                <h2 class="display-5 fw-bold">A Different Kind of Relationship Platform</h2>
+                <p class="text-muted lead">Designed to help African singles connect with clarity, dignity, and real intent.</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="platform-card h-100 p-4">
+                        <div class="card-icon-badge mb-3">
+                            <svg viewBox="0 0 24 24" class="icon"><path fill="currentColor" d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12c5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4l1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                        </div>
+                        <h3>Identity Verified</h3>
+                        <p>Know who you're meeting. We verify members' identities so you can connect with people who are who they say they are.</p>
+                    </div>
                 </div>
 
-                <div class="platform-card">
-                    <div class="card-icon-badge">
-                        <svg viewBox="0 0 24 24" class="icon"><path fill="currentColor" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                <div class="col-lg-4 col-md-6">
+                    <div class="platform-card h-100 p-4">
+                        <div class="card-icon-badge mb-3">
+                            <svg viewBox="0 0 24 24" class="icon"><path fill="currentColor" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                        </div>
+                        <h3>Compatibility Matched</h3>
+                        <p>More than just a profile. We look beyond surface-level attraction to connect you with people who align with your values, relationship goals, and vision for the future.</p>
                     </div>
-                    <h3>Compatibility Matched</h3>
-                    <p>More than just a profile. We look beyond surface-level attraction to connect you with people who align with your values, relationship goals, and vision for the future.</p>
                 </div>
 
-                <div class="platform-card">
-                    <div class="card-icon-badge">
-                        <svg viewBox="0 0 24 24" class="icon"><path fill="currentColor" d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+                <div class="col-lg-4 col-md-12">
+                    <div class="platform-card h-100 p-4">
+                        <div class="card-icon-badge mb-3">
+                            <svg viewBox="0 0 24 24" class="icon"><path fill="currentColor" d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+                        </div>
+                        <h3>Intentional Community</h3>
+                        <p>People who are ready for something real. HAVORA is built for people who are intentional about relationships and looking to build a meaningful, lasting connection.</p>
                     </div>
-                    <h3>Intentional Community</h3>
-                    <p>People who are ready for something real. HAVORA is built for people who are intentional about relationships and looking to build a meaningful, lasting connection.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Why Havora? Section (Custom Uploaded Image) -->
-    <section id="why-havora" class="section why-havora-section">
-        <div class="container">
-            <div class="why-layout">
-                <div class="why-image-col">
-                    <div class="image-frame shadow-gold">
-                        <img src="why-havora.jpg" alt="Why Havora" class="why-img">
+    <!-- Why Havora? Section -->
+    <section id="why-havora" class="section why-havora-section py-5 bg-white">
+        <div class="container py-4">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <div class="image-frame shadow-gold rounded-4 overflow-hidden">
+                        <img src="why-havora.jpg" alt="Why Havora" class="img-fluid w-100 why-img">
                     </div>
                 </div>
 
-                <div class="why-text-col">
-                    <span class="why-tag-gold">WHY HAVORA?</span>
-                    <h2>Finding the right person shouldn’t feel like searching through a crowd.</h2>
-                    <p class="why-desc">
+                <div class="col-lg-6">
+                    <span class="why-tag-gold fw-bold text-uppercase mb-2 d-block">WHY HAVORA?</span>
+                    <h2 class="display-6 fw-bold mb-4">Finding the right person shouldn’t feel like searching through a crowd.</h2>
+                    <p class="text-muted mb-3">
                         Dating can give you plenty of options without giving you much clarity. You can meet people, have conversations, go on dates, and still wonder whether you’re actually meeting people who want the same things you do.
                     </p>
-                    <p class="why-desc">
+                    <p class="text-muted mb-4">
                         HAVORA takes a more intentional approach. Instead of making connections based on how many people you can meet, we’re building around who you are, what you value, and what you hope to build with someone.
                     </p>
                     <div class="why-cta">
@@ -129,130 +212,161 @@
     </section>
 
     <!-- What HAVORA Stands For -->
-    <section id="principles" class="section stands-for-section">
-        <div class="container">
-            <div class="section-header text-center">
-                <h2>What HAVORA Stands For</h2>
-                <p>Our core principles guide every connection.</p>
+    <section id="principles" class="section stands-for-section py-5">
+        <div class="container py-4">
+            <div class="section-header text-center mb-5">
+                <h2 class="display-5 fw-bold">What HAVORA Stands For</h2>
+                <p class="text-muted lead">Our core principles guide every connection.</p>
             </div>
 
-            <div class="stands-grid">
-                <div class="stand-card">
-                    <div class="stand-icon">🎯</div>
-                    <h3>Intentionality</h3>
-                    <p>HAVORA is built for people seeking meaningful, lasting relationships, not endless swiping or casual interactions.</p>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="stand-card h-100 p-4">
+                        <div class="stand-icon fs-1 mb-2">🎯</div>
+                        <h3>Intentionality</h3>
+                        <p>HAVORA is built for people seeking meaningful, lasting relationships, not endless swiping or casual interactions.</p>
+                    </div>
                 </div>
 
-                <div class="stand-card highlighted-teal">
-                    <div class="stand-icon">🌟</div>
-                    <h3>Authenticity</h3>
-                    <p>Create a profile that reflects who you genuinely are, what you value, and what you’re looking for.</p>
+                <div class="col-lg-4 col-md-6">
+                    <div class="stand-card highlighted-teal h-100 p-4">
+                        <div class="stand-icon fs-1 mb-2">🌟</div>
+                        <h3>Authenticity</h3>
+                        <p>Create a profile that reflects who you genuinely are, what you value, and what you’re looking for.</p>
+                    </div>
                 </div>
 
-                <div class="stand-card">
-                    <div class="stand-icon">🛡️</div>
-                    <h3>Trust</h3>
-                    <p>Identity verification and thoughtful review help create a community where people can connect with greater confidence.</p>
+                <div class="col-lg-4 col-md-6">
+                    <div class="stand-card h-100 p-4">
+                        <div class="stand-icon fs-1 mb-2">🛡️</div>
+                        <h3>Trust</h3>
+                        <p>Identity verification and thoughtful review help create a community where people can connect with greater confidence.</p>
+                    </div>
                 </div>
 
-                <div class="stand-card">
-                    <div class="stand-icon">💖</div>
-                    <h3>Compatibility</h3>
-                    <p>Discover people who align with your values, relationship goals, and vision for the future.</p>
+                <div class="col-lg-6 col-md-6">
+                    <div class="stand-card h-100 p-4">
+                        <div class="stand-icon fs-1 mb-2">💖</div>
+                        <h3>Compatibility</h3>
+                        <p>Discover people who align with your values, relationship goals, and vision for the future.</p>
+                    </div>
                 </div>
 
-                <div class="stand-card">
-                    <div class="stand-icon">🔒</div>
-                    <h3>Privacy</h3>
-                    <p>Your personal information and conversations deserve to be protected. Privacy is built into the experience.</p>
+                <div class="col-lg-6 col-md-12">
+                    <div class="stand-card h-100 p-4">
+                        <div class="stand-icon fs-1 mb-2">🔒</div>
+                        <h3>Privacy</h3>
+                        <p>Your personal information and conversations deserve to be protected. Privacy is built into the experience.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- How it Works (#0D4E3D Deep Forest Green Background) -->
-    <section id="how-it-works" class="section how-it-works-section">
-        <div class="container">
-            <div class="section-header text-center text-white">
-                <h2 class="text-white">How it Works</h2>
-                <p class="text-gold">A Thoughtful Journey</p>
+    <!-- How it Works (#0D4E3D Deep Forest Green Background with Crisp White Text) -->
+    <section id="how-it-works" class="section how-it-works-section py-5">
+        <div class="container py-4">
+            <div class="section-header text-center mb-5">
+                <h2 class="display-5 fw-bold text-white mb-2">How it Works</h2>
+                <p class="text-gold lead">A Thoughtful Journey</p>
             </div>
 
-            <div class="how-grid">
-                <div class="how-card">
-                    <div class="step-num">01</div>
-                    <h4>Join HAVORA</h4>
-                    <p>Take the first step toward a more intentional way to meet.</p>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="how-card">
+                        <div class="step-num">01</div>
+                        <h4 class="text-white fw-bold mt-2">Join HAVORA</h4>
+                        <p class="text-white mb-0">Take the first step toward a more intentional way to meet.</p>
+                    </div>
                 </div>
 
-                <div class="how-card">
-                    <div class="step-num">02</div>
-                    <h4>Build Your Profile</h4>
-                    <p>Tell us who you are, what matters to you, and what you’re looking for in a relationship.</p>
+                <div class="col-lg-4 col-md-6">
+                    <div class="how-card">
+                        <div class="step-num">02</div>
+                        <h4 class="text-white fw-bold mt-2">Build Your Profile</h4>
+                        <p class="text-white mb-0">Tell us who you are, what matters to you, and what you’re looking for in a relationship.</p>
+                    </div>
                 </div>
 
-                <div class="how-card">
-                    <div class="step-num">03</div>
-                    <h4>Verify Your Identity</h4>
-                    <p>Complete our identity verification process so people can connect with greater confidence.</p>
+                <div class="col-lg-4 col-md-6">
+                    <div class="how-card">
+                        <div class="step-num">03</div>
+                        <h4 class="text-white fw-bold mt-2">Verify Your Identity</h4>
+                        <p class="text-white mb-0">Complete our identity verification process so people can connect with greater confidence.</p>
+                    </div>
                 </div>
 
-                <div class="how-card">
-                    <div class="step-num">04</div>
-                    <h4>Find Your Compatibility</h4>
-                    <p>Discover people whose values, relationship goals, and vision align with yours.</p>
+                <div class="col-lg-4 col-md-6">
+                    <div class="how-card">
+                        <div class="step-num">04</div>
+                        <h4 class="text-white fw-bold mt-2">Find Your Compatibility</h4>
+                        <p class="text-white mb-0">Discover people whose values, relationship goals, and vision align with yours.</p>
+                    </div>
                 </div>
 
-                <div class="how-card">
-                    <div class="step-num">05</div>
-                    <h4>Explore & Connect</h4>
-                    <p>Take your time getting to know people who genuinely interest you.</p>
+                <div class="col-lg-4 col-md-6">
+                    <div class="how-card">
+                        <div class="step-num">05</div>
+                        <h4 class="text-white fw-bold mt-2">Explore & Connect</h4>
+                        <p class="text-white mb-0">Take your time getting to know people who genuinely interest you.</p>
+                    </div>
                 </div>
 
-                <div class="how-card">
-                    <div class="step-num">06</div>
-                    <h4>Build Something Meaningful</h4>
-                    <p>When the connection feels right, take the next step together.</p>
+                <div class="col-lg-4 col-md-6">
+                    <div class="how-card">
+                        <div class="step-num">06</div>
+                        <h4 class="text-white fw-bold mt-2">Build Something Meaningful</h4>
+                        <p class="text-white mb-0">When the connection feels right, take the next step together.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- FAQ Accordion Section -->
-    <section id="faq" class="section faq-section">
-        <div class="container small-container">
-            <div class="section-header text-center">
-                <h2>Frequently Asked Questions</h2>
+    <section id="faq" class="section faq-section py-5">
+        <div class="container small-container py-4">
+            <div class="section-header text-center mb-4">
+                <h2 class="display-5 fw-bold">Frequently Asked Questions</h2>
             </div>
 
-            <div class="faq-accordion">
-                <div class="faq-item active">
-                    <button class="faq-trigger">
-                        <span>Who is Havora for?</span>
-                        <span class="faq-toggle">−</span>
-                    </button>
-                    <div class="faq-content">
-                        <p>Havora is designed specifically for single Africans home and across the diaspora (USA, UK, Canada, Europe, etc.) who are ready for intentional, serious relationships leading to marriage.</p>
+            <div class="accordion custom-accordion" id="faqAccordion">
+                <div class="accordion-item mb-3 rounded-3 overflow-hidden border">
+                    <h2 class="accordion-header" id="faqHeadingOne">
+                        <button class="accordion-button fw-bold text-dark fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseOne" aria-expanded="true" aria-controls="faqCollapseOne">
+                            Who is Havora for?
+                        </button>
+                    </h2>
+                    <div id="faqCollapseOne" class="accordion-collapse collapse show" aria-labelledby="faqHeadingOne" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body text-muted">
+                            Havora is designed specifically for single Africans home and across the diaspora (USA, UK, Canada, Europe, etc.) who are ready for intentional, serious relationships leading to marriage.
+                        </div>
                     </div>
                 </div>
 
-                <div class="faq-item">
-                    <button class="faq-trigger">
-                        <span>Is Havora launching everywhere at once?</span>
-                        <span class="faq-toggle">+</span>
-                    </button>
-                    <div class="faq-content">
-                        <p>We are rolling out in curated batches to ensure deep match quality. Joining the waitlist gives you priority access as soon as your location opens.</p>
+                <div class="accordion-item mb-3 rounded-3 overflow-hidden border">
+                    <h2 class="accordion-header" id="faqHeadingTwo">
+                        <button class="accordion-button collapsed fw-bold text-dark fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseTwo" aria-expanded="false" aria-controls="faqCollapseTwo">
+                            Is Havora launching everywhere at once?
+                        </button>
+                    </h2>
+                    <div id="faqCollapseTwo" class="accordion-collapse collapse" aria-labelledby="faqHeadingTwo" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body text-muted">
+                            We are rolling out in curated batches to ensure deep match quality. Joining the waitlist gives you priority access as soon as your location opens.
+                        </div>
                     </div>
                 </div>
 
-                <div class="faq-item">
-                    <button class="faq-trigger">
-                        <span>How does identity verification work?</span>
-                        <span class="faq-toggle">+</span>
-                    </button>
-                    <div class="faq-content">
-                        <p>Every member completes a quick 2-step government ID & live selfie check before interacting, eliminating fake profiles and catfish.</p>
+                <div class="accordion-item mb-3 rounded-3 overflow-hidden border">
+                    <h2 class="accordion-header" id="faqHeadingThree">
+                        <button class="accordion-button collapsed fw-bold text-dark fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseThree" aria-expanded="false" aria-controls="faqCollapseThree">
+                            How does identity verification work?
+                        </button>
+                    </h2>
+                    <div id="faqCollapseThree" class="accordion-collapse collapse" aria-labelledby="faqHeadingThree" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body text-muted">
+                            Every member completes a quick 2-step government ID & live selfie check before interacting, eliminating fake profiles and catfish.
+                        </div>
                     </div>
                 </div>
             </div>
@@ -260,51 +374,68 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container footer-grid">
-            <div class="footer-col-brand">
-                <a href="index.html" class="logo text-white">
-                    <div class="logo-emblem">
-                        <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="19" fill="#B98D44"/><path d="M15 19C15 17 17 15 20 15C23 15 25 17 25 19C25 22 20 25 20 25C20 25 15 22 15 19Z" fill="#158265"/></svg>
+    <footer class="footer py-5 text-white">
+        <div class="container py-3">
+            <div class="row g-4 mb-4">
+                <div class="col-lg-5 col-md-6">
+                    <a href="index.html" class="logo text-white d-flex align-items-center gap-2 mb-3">
+                        <div class="logo-emblem">
+                            <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="19" fill="#B98D44"/><path d="M15 19C15 17 17 15 20 15C23 15 25 17 25 19C25 22 20 25 20 25C20 25 15 22 15 19Z" fill="#158265"/></svg>
+                        </div>
+                        <span class="fs-3 fw-bold">Havora</span>
+                    </a>
+                    <p class="text-white-50 small mb-3">Connecting intentional African singles home and abroad for lasting marriages.</p>
+                    
+                    <!-- SVG Circular Social Media Icon Buttons -->
+                    <div class="social-icons">
+                        <a href="#" class="social-icon-btn" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                        <a href="#" class="social-icon-btn" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+                        </a>
+                        <a href="#" class="social-icon-btn" aria-label="Twitter X">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a>
                     </div>
-                    <span>Havora</span>
-                </a>
-                <p>Connecting intentional African singles home and abroad for lasting marriages.</p>
-                <div class="social-icons">
-                    <a href="#">IG</a>
-                    <a href="#">LN</a>
-                    <a href="#">TW</a>
+                </div>
+
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="text-white mb-3">Home</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#how-it-works" class="text-white-50 text-decoration-none">How it works</a></li>
+                        <li><a href="#why-havora" class="text-white-50 text-decoration-none">Why Havora?</a></li>
+                        <li><a href="waitlist.html" class="text-white-50 text-decoration-none">Join Waitlist</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-white mb-3">Terms of Service</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white-50 text-decoration-none">Privacy Policy</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Terms of Service</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Cookie Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="text-white mb-3">About</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white-50 text-decoration-none">About Us</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Careers</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Community</a></li>
+                    </ul>
                 </div>
             </div>
 
-            <div class="footer-col-links">
-                <h5>Home</h5>
-                <a href="#how-it-works">How it works</a>
-                <a href="#why-havora">Why Havora?</a>
-                <a href="waitlist.html">Join Waitlist</a>
+            <div class="border-top border-secondary pt-4 text-center text-white-50 small">
+                <p>©2026 Havora - All rights reserved. | <a href="#" class="text-white-50">Terms of use</a> | <a href="#" class="text-white-50">Privacy policy</a></p>
             </div>
-
-            <div class="footer-col-links">
-                <h5>Terms of Service</h5>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-                <a href="#">Cookie Policy</a>
-            </div>
-
-            <div class="footer-col-links">
-                <h5>About</h5>
-                <a href="#">About Us</a>
-                <a href="#">Careers</a>
-                <a href="#">Community</a>
-                <a href="#">Security</a>
-            </div>
-        </div>
-
-        <div class="footer-bottom text-center">
-            <p>©2026 Havora - All rights reserved. | <a href="#">Terms of use</a> | <a href="#">Privacy policy</a> | <a href="#">Security</a></p>
         </div>
     </footer>
 
+    <!-- Bootstrap 5.3 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

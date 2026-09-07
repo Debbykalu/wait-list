@@ -1,0 +1,5 @@
+{
+  "summary": "Updated script.js to dynamically set active navitem on click and on scroll (ScrollSpy) so active highlight moves immediately to whichever section is clicked or viewed.",
+  "updatedAt": "2026-09-06T23:15:02.552823400Z",
+  "userFacing": true
+}

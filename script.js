@@ -108,4 +108,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Auto-scrolling Hero Carousel (cycles every 3.5 seconds)
+    const heroCarouselEl = document.getElementById('havoraHeroCarousel');
+    if (heroCarouselEl && typeof bootstrap !== 'undefined') {
+        const heroCarousel = new bootstrap.Carousel(heroCarouselEl, {
+            interval: 3500,
+            ride: 'carousel',
+            touch: true,
+            pause: false
+        });
+        heroCarousel.cycle();
+    }
+
 });
