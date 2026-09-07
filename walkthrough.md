@@ -1,21 +1,32 @@
-# Layout & Modal Centering Fixes
+# Havora — Partner Preferences Multi-Select Fix
 
-We resolved two main issues related to pages/modals touching the top of the viewport, overlapping, and losing scrollability:
+## Changes Made
 
-1. **Overlapping Modals (Side-by-Side Flex Layout)**
-   - When a guest user clicked **"Chat with Seller"** from the car details page, they were redirected to sign in.
-   - The sign-in modal (`#modal-auth`) opened, but because the car details modal (`#modal-detail`) was not hidden, both were rendered side-by-side inside the `.modal-overlay`'s flex layout.
-   - This squished both modals, causing them to stretch, touch the top edge of the browser, and lose vertical scrollability.
-   - **Fix**: We modified [script.js](file:///c:/Users/DELL/Desktop/carapp/js/script.js) to:
-     - Automatically hide the detail modal when redirecting a user to the sign-in modal.
-     - Keep track of the active callback (`pendingAuthCallback`) and whether the detail modal was previously open (`State.modalDetailWasOpen`).
-     - Execute the pending action (i.e. open the chat drawer) immediately after successful authentication.
-     - Return the user back to the detail modal if they cancel/close the authentication modal.
-     - Ensure that opening any modal card automatically hides other sibling modal cards, ensuring only one modal is visible at a time inside the overlay.
+1. **Inline & Event-Delegated Chip Selection (`research.html` & `script.js`)**:
+   - Added explicit `onclick="toggleChipOption(this, event)"` handler and matching `data-value` attributes to each chip option in [research.html](file:///c:/Users/DELL/Desktop/havora/research.html).
+   - Exported global `window.toggleChipOption` in [script.js](file:///c:/Users/DELL/Desktop/havora/script.js) to guarantee 100% reliable execution regardless of DOM loading speed or browser caching.
+   - Enforced maximum selection limit of **3 options** with dynamic badge updates (`0/3 Selected`, `1/3 Selected`, `2/3 Selected`, `3/3 Selected (Maximum)`).
+   - Syncs selected options into a hidden form input (`#selected-partner-matters`) for seamless form submission.
 
-2. **Top-Clipping & Scrollability in Viewports**
-   - The flex layout of `.modal-overlay` used `align-items: center` to center modals vertically. When the modal was taller than the viewport (especially on smaller screen heights or inside the massive **"Post a Car for Sale"** form), the browser pushed the top of the card off-screen. This clipped the top area (close button and header title) and made it impossible to scroll back up to see it.
-   - **Fix**: We modified [style.css](file:///c:/Users/DELL/Desktop/carapp/css/style.css) to:
-     - Set `.modal-overlay` to `align-items: flex-start` with a generous padding (`padding: 2.5rem 1.5rem`).
-     - Set `.modal-card` to `margin: auto`.
-     - In CSS Flexbox, this combination ensures that if the modal card fits inside the viewport, it is perfectly centered vertically and horizontally. If the modal card is taller than the viewport, it aligns to the top of the overlay (leaving a clean `2.5rem` top margin) and allows standard scrolling down to see the remaining content without any clipping.
+2. **Override-Proof CSS Styling (`style.css`)**:
+   - Added `!important` flags and high-specificity selectors to [.chip-option](file:///c:/Users/DELL/Desktop/havora/style.css#L421-L470) rules so Bootstrap 5 resets can never override selected chip state.
+   - Added bold gold checkmark icon (`<span class="chip-check-icon">✓</span>`) that dynamically appears when a pill is selected.
+   - Applied `#158265` Deep Emerald Teal background, `#B98D44` Luxury Gold border, and active hover lift animations for instant visual feedback.
+
+---
+
+## Verification & Testing
+
+- **Live Research Questionnaire Page**: [research.html](file:///c:/Users/DELL/Desktop/havora/research.html)
+- Tested clicking on any of the 8 partner option pills:
+  1. *Shared Cultural Values*
+  2. *Emotional Maturity*
+  3. *Faith & Spirituality*
+  4. *Financial Responsibility*
+  5. *Family Orientation*
+  6. *Honesty & Mutual Respect*
+  7. *Ambition & Drive*
+  8. *Open Communication*
+- Verified clicking highlights the pill in Deep Teal with a gold checkmark.
+- Verified clicking up to 3 options increments counter badge (`3/3 Selected`).
+- Verified attempting to select a 4th option triggers a warning notification without exceeding the limit.

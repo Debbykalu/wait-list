@@ -24,52 +24,55 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Multi-Select Chips Logic (Select up to 3 options)
-    const chipBtns = document.querySelectorAll('.chip-option');
-    const limitBadge = document.getElementById('limit-badge');
-    const hiddenInput = document.getElementById('selected-partner-matters');
     let selectedValues = [];
 
-    if (chipBtns.length > 0) {
-        chipBtns.forEach(chip => {
-            chip.addEventListener('click', (e) => {
-                e.preventDefault();
-                const val = chip.getAttribute('data-value') || chip.textContent.trim();
-                const isSelected = chip.classList.contains('selected');
+    window.toggleChipOption = function(chip, event) {
+        if (event) event.preventDefault();
+        if (!chip) return;
 
-                if (isSelected) {
-                    // Unselect
-                    chip.classList.remove('selected');
-                    selectedValues = selectedValues.filter(item => item !== val);
-                } else {
-                    // Check limit
-                    if (selectedValues.length >= 3) {
-                        if (limitBadge) {
-                            limitBadge.textContent = "Maximum 3 options reached";
-                            limitBadge.classList.add('warning');
-                            setTimeout(() => {
-                                limitBadge.textContent = selectedValues.length > 0 ? `${selectedValues.length}/3 Selected` : "Select up to 3 options";
-                                limitBadge.classList.remove('warning');
-                            }, 2500);
-                        }
-                        return;
-                    }
-                    // Select
-                    chip.classList.add('selected');
-                    selectedValues.push(val);
-                }
+        const limitBadge = document.getElementById('limit-badge');
+        const hiddenInput = document.getElementById('selected-partner-matters');
+        
+        // Find value from data-value or label text
+        const labelEl = chip.querySelector('.chip-label');
+        const val = chip.getAttribute('data-value') || (labelEl ? labelEl.textContent.trim() : chip.textContent.replace('✓', '').trim());
+        const isSelected = chip.classList.contains('selected');
 
-                // Update hidden input
-                if (hiddenInput) {
-                    hiddenInput.value = selectedValues.join(', ');
-                }
-
-                // Update badge text counter
+        if (isSelected) {
+            // Unselect
+            chip.classList.remove('selected');
+            selectedValues = selectedValues.filter(item => item !== val);
+        } else {
+            // Check limit (up to 3 options)
+            if (selectedValues.length >= 3) {
                 if (limitBadge) {
-                    limitBadge.textContent = selectedValues.length > 0 ? `${selectedValues.length}/3 Selected` : "Select up to 3 options";
+                    limitBadge.textContent = "Maximum 3 options reached!";
+                    limitBadge.classList.add('warning');
+                    setTimeout(() => {
+                        limitBadge.textContent = selectedValues.length > 0 ? `${selectedValues.length}/3 Selected` : "Select up to 3 options";
+                        limitBadge.classList.remove('warning');
+                    }, 2500);
                 }
-            });
-        });
-    }
+                return;
+            }
+            // Select
+            chip.classList.add('selected');
+            if (!selectedValues.includes(val)) {
+                selectedValues.push(val);
+            }
+        }
+
+        // Update hidden input
+        if (hiddenInput) {
+            hiddenInput.value = selectedValues.join(', ');
+        }
+
+        // Update badge text counter
+        if (limitBadge) {
+            limitBadge.textContent = selectedValues.length > 0 ? `${selectedValues.length}/3 Selected` : "Select up to 3 options";
+            limitBadge.classList.remove('warning');
+        }
+    };
 
     // Dynamic Navbar Active Link Handler & ScrollSpy
     const navLinks = document.querySelectorAll('.nav-links a');
