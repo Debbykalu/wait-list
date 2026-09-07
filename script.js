@@ -31,8 +31,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (chipBtns.length > 0) {
         chipBtns.forEach(chip => {
-            chip.addEventListener('click', () => {
-                const val = chip.getAttribute('data-value');
+            chip.addEventListener('click', (e) => {
+                e.preventDefault();
+                const val = chip.getAttribute('data-value') || chip.textContent.trim();
                 const isSelected = chip.classList.contains('selected');
 
                 if (isSelected) {
@@ -46,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             limitBadge.textContent = "Maximum 3 options reached";
                             limitBadge.classList.add('warning');
                             setTimeout(() => {
-                                limitBadge.textContent = "Select up to 3 options";
+                                limitBadge.textContent = selectedValues.length > 0 ? `${selectedValues.length}/3 Selected` : "Select up to 3 options";
                                 limitBadge.classList.remove('warning');
                             }, 2500);
                         }
@@ -64,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Update badge text counter
                 if (limitBadge) {
-                    limitBadge.textContent = `${selectedValues.length}/3 Selected`;
+                    limitBadge.textContent = selectedValues.length > 0 ? `${selectedValues.length}/3 Selected` : "Select up to 3 options";
                 }
             });
         });
@@ -122,19 +123,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Scroll Reveal Observer for Sections & Cards
     const revealElements = document.querySelectorAll('.platform-card, .stand-card, .how-card, .section-header');
-    revealElements.forEach(el => el.classList.add('reveal-on-scroll'));
+    if (revealElements.length > 0) {
+        revealElements.forEach(el => el.classList.add('reveal-on-scroll'));
 
-    if ('IntersectionObserver' in window) {
-        const revealObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animated-in');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.12 });
+        if ('IntersectionObserver' in window) {
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated-in');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12 });
 
-        revealElements.forEach(el => revealObserver.observe(el));
+            revealElements.forEach(el => revealObserver.observe(el));
+        } else {
+            revealElements.forEach(el => el.classList.add('animated-in'));
+        }
+    }
+
     // Duplicate Email & Phone Validation Logic for Waitlist Submission
     const waitlistForm = document.getElementById('standalone-waitlist-form');
     if (waitlistForm) {
